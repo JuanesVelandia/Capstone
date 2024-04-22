@@ -1,0 +1,12 @@
+- id: c7b2f3e9-8a7d-4c65-b60a-3a8e4dcf08f3
+  name: DNS Service Scanning
+  description: Scanning for DNS services on a network
+  tactic: discovery
+  technique:
+    attack_id: T1010
+    name: Application Layer Protocol
+  platforms:
+    linux:
+      sh:
+        command: nmap -p 1-65535 172.17.0.2
+          # Replace <target_IP_or_range> with the specific IP or range to scan for DNS services

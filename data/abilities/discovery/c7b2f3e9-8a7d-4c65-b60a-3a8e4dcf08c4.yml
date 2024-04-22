@@ -1,0 +1,11 @@
+- id: c7b2f3e9-8a7d-4c65-b60a-3a8e4dcf08c4  # Unique identifier for this technique
+  name: Network Service Scanning - DNS Protocol - 01
+  description: Scanning for DNS services on a network for reconnaissance purposes
+  tactic: discovery
+  technique:
+    attack_id: T1010
+    name: Application Layer Protocol
+  platforms:
+    linux:
+      sh:
+        command: nmap -p 53 127.0.0.1

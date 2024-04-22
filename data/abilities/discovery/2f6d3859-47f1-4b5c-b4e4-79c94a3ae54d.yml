@@ -1,0 +1,11 @@
+- id: 2f6d3859-47f1-4b5c-b4e4-79c94a3ae54d
+  name: DNSRecon Scanning - Localhost
+  description: Scanning DNS services on localhost using DNSRecon
+  tactic: discovery
+  technique:
+    attack_id: T1010
+    name: Application Layer Protocol
+  platforms:
+    linux:
+      sh:
+        command: dnsrecon -t std -d 127.0.0.1

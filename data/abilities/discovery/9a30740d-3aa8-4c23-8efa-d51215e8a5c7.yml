@@ -1,0 +1,23 @@
+- id: 9a30740d-3aa8-4c23-8efa-d51215e8a5c7
+  name: TEST001
+  description: This is a test
+  tactic: discovery
+  technique:
+    attack_id: T1016
+    name: System Network Configuration Discovery
+  platforms:
+    darwin:
+      sh:
+        command: |
+          ./wifi.sh scan
+        payload: wifi.sh
+    linux:
+      sh:
+        command: |
+          ./wifi.sh scan
+        payload: wifi.sh
+    windows:
+      psh:
+        command: |
+          .\wifi.ps1 -Scan
+        payload: wifi.ps1

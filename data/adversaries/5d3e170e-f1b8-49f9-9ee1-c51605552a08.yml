@@ -1,0 +1,7 @@
+id: 5d3e170e-f1b8-49f9-9ee1-c51605552a08
+name: Network Data Collection
+description: An adversary focused on collecting network data
+atomic_ordering:
+    - 12345678-abcd-1234-efgh-87654321ijkl # Network Service Scanning - DNS Protocol
+    - 12345678-abcd-1234-efgh-87654321ijka        
+# Add more technique IDs here if needed for further steps in the adversary's behavior

@@ -1,0 +1,11 @@
+- id: 12345678-abcd-1234-efgh-87654321ijkl
+  name: Network Service Scanning - DNS Protocol
+  description: Scanning for DNS service vulnerabilities
+  tactic: discovery
+  technique:
+    attack_id: T1018
+    name: Remote System Discovery
+  platforms:
+    linux:
+      sh:
+        command: nmap -sU -p 53 127.0.0.1

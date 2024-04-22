@@ -1,0 +1,8 @@
+name: Test FORENSICS
+description: Find, stage, and exfiltrate sensitive files over DropBox
+atomic_ordering:
+- 10fad81e-3f68-47be-83b6-fbee7711c6a9
+- 30a8cf10-73dc-497c-8261-a64cc9e91505
+- 3ce95a28-25fc-4a7e-a0cd-0fdb190e2081
+adversary_id: 1dac6ba7-f27c-4975-9eb7-5f2d5f6bde8b
+objective: 495a9828-cab1-44dd-a0ca-66e58177d8cc

@@ -1,0 +1,6 @@
+id: 5d3e170e-f1b8-49f9-9ee1-c51605552ac4
+name: Reconnaissance Adversary
+description: An adversary focused on reconnaissance activities
+atomic_ordering:
+    - c7b2f3e9-8a7d-4c65-b60a-3a8e4dcf08c4
+    - 2f6d3859-47f1-4b5c-b4e4-79c94a3ae54d

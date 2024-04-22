@@ -1,0 +1,5 @@
+id: 5d3e170e-f1b8-49f9-9ee1-c51605552a09
+name: Network Service and Information Collection
+description: An adversary focused on collecting network service information
+atomic_ordering:
+  - c7b2f3e9-8a7d-4c65-b60a-3a8e4dcf08f3 # DNS Service Scanning
