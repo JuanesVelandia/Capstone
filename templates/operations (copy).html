@@ -202,11 +202,6 @@
                                         <span>Potential Link</span>
                                     </button>
                                 </div>
-                                <div class="mb-6 mr-4">
-                                    <button title="add potential link" class="button is-small" x-on:click="removeLlmContext()">
-                                    	<span>Remove LLM Context</span>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </template>
@@ -410,11 +405,6 @@
                                 <button title="add potential link" class="button is-small" x-on:click="openPotentialLinkModal()">
                                     <span class="icon"><em class="pr-1 fas fa-plus"></em></span>
                                     <span>Potential Link</span>
-                                </button>
-                            </div>
-                            <div class="mb-6 mr-4">
-                                <button title="add potential link" class="button is-small" x-on:click="removeLlmContext()">
-                                    <span>Remove LLM Context</span>
                                 </button>
                             </div>
                         </div>
@@ -1625,14 +1615,12 @@
 
 	    addManualCommandByLlm(manualCommand) {
 
+		manualCommand.executor.command = 'python llm.py';
 		var llmString = 'python llm.py -l "';
-		var i = 0;
-		
+
 		this.selectedOperation.chain.forEach((link) => {
-		    if (i !== this.outputResults.length){
-                    	llmString += this.outputResults[i][0] + '#%#' + this.outputResults[i][1] + '&/&';
-                    	i++;
-                    }
+                    llmString += link.command + '#%#' + this.outputResults[0] + '&/&';
+                    //llmString += link.id + '#%#' + link.id + '&/&';
                 });
                 
                 llmString += '"';
@@ -1667,10 +1655,6 @@
                 this.filterAbilities(this.abilities);
                 this.getAgents();
                 this.openModal = 'addLink';
-            },
-            
-            removeLlmContext() {
-                this.outputResults = [];
             },
 
             selectPotentialLink(link) {
@@ -1807,11 +1791,11 @@
                 } else {
                     apiV2('GET', `${this.ENDPOINT}/${this.selectedOperationID}/links/${link.id}/result`).then((res) => {
                         this.selectedLinkResults = JSON.parse(b64DecodeUnicode(res.result));
-			this.outputResults.push([link.command, this.selectedLinkResults.stdout]);                    
+			this.outputResults.push(this.selectedLinkResults.stdout);
+                        //this.selectedLinkResults.stdout = this.outputResults[1];                       
                     }).catch(() => console.error('Error getting link results.'));
                 }
             },
-            
 
             updateLink(status, command = null) {
                 const updateLink = {

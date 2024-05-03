@@ -8,5 +8,5 @@
   platforms:
     linux:
       sh:
-        command: nmap -p 1-65535 172.17.0.2
+        command: nmap -sS 172.17.0.2
           # Replace <target_IP_or_range> with the specific IP or range to scan for DNS services
