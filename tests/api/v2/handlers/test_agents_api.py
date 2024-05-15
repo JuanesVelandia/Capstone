@@ -79,7 +79,7 @@ def test_agent(event_loop, mocker, mock_time):
 
 @pytest.fixture
 def test_executor(test_agent):
-    return ExecutorSchema().load(dict(timeout=60, platform=test_agent.platform, name='linux',
+    return ExecutorSchema().load(dict(timeout=180, platform=test_agent.platform, name='linux',
                                       command='ls'))
 
 
