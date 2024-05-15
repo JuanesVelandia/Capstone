@@ -302,6 +302,20 @@
                                             </div>
                                         </template>
                                     </td>
+                                    
+                                    <td class="outputDetails">
+                                        <template x-if="link.output !== 'True'">
+                                            <p class="is-size-7 is-italic ml-4">No data to pass.</p>
+                                        </template>
+                                        <template x-if="link.output === 'True'">
+                                            <div>
+                                                <button class="button is-small"
+                                                        x-on:click="getLink(link)"
+                                                        title="view output">Add to LLM
+                                                </button>
+                                            </div>
+                                        </template>
+                                    </td>
 
                                     <td class="csv-exclude">
                                         <button x-show="selectedLink === link && isOperationRunning && !(link.status in LINK_STATUSES)"
@@ -1630,7 +1644,7 @@
 		
 		this.selectedOperation.chain.forEach((link) => {
 		    if (i !== this.outputResults.length){
-                    	llmString += this.outputResults[i][0] + '#%#' + this.outputResults[i][1] + '&/&';
+                    	llmString += this.outputResults[i][0].replace(/"/g, "'").replace(/#%#|&\/&/g, '') + '#%#' + this.outputResults[i][1].replace(/"/g, "'").replace(/#%#|&\/&/g, '') + '&/&';
                     	i++;
                     }
                 });
