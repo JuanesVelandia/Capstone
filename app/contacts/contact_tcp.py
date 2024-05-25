@@ -81,7 +81,7 @@ class TcpSessionHandler(BaseWorld):
         self.sessions.append(new_session)
         await self.send(new_session.id, agent.paw, timeout=5)
 
-    async def send(self, session_id: int, cmd: str, timeout: int = 60) -> Tuple[int, str, str, str]:
+    async def send(self, session_id: int, cmd: str, timeout: int = 80) -> Tuple[int, str, str, str]:
         try:
             conn = next(i.connection for i in self.sessions if i.id == int(session_id))
             conn.send(str.encode(' '))

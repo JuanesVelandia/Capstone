@@ -135,7 +135,7 @@ class TestPlanningService:
                 planning_svc.wait_for_links_and_monitor(planner, operation,
                                                         link_ids,
                                                         condition_stop=True),
-                timeout=5.0)
+                timeout=500.0)
         except asyncio.TimeoutError:
             timeout = True
         assert timeout is True
@@ -175,7 +175,7 @@ class TestPlanningService:
         timeout = False
         try:
             await asyncio.wait_for(planning_svc.exhaust_bucket(
-                planner, bucket, operation, agent), timeout=5.0)
+                planner, bucket, operation, agent), timeout=500.0)
         except asyncio.TimeoutError:
             timeout = True
         assert timeout is True

@@ -220,8 +220,8 @@ class Agent(FirstClassObjectInterface, BaseObject):
 
     async def kill(self):
         self.update('watchdog', 1)
-        self.update('sleep_min', 60 * 2)
-        self.update('sleep_max', 60 * 2)
+        self.update('sleep_min', 60 * 10)
+        self.update('sleep_max', 60 * 10)
 
     def replace(self, encoded_cmd, file_svc):
         decoded_cmd = b64decode(encoded_cmd).decode('utf-8', errors='ignore').replace('\n', '')

@@ -116,8 +116,8 @@ class Operation(FirstClassObjectInterface, BaseObject):
         super().__init__()
         self.id = str(id) if id else str(uuid.uuid4())
         self.start, self.finish = None, None
-        self.base_timeout = 180
-        self.link_timeout = 30
+        self.base_timeout = 1800
+        self.link_timeout = 300
         self.name = name
         self.group = group
         self.agents = agents if agents else []

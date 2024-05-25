@@ -15,7 +15,7 @@ class ExecutorSchema(ma.Schema):
     build_target = ma.fields.String(load_default=None)
     payloads = ma.fields.List(ma.fields.String())
     uploads = ma.fields.List(ma.fields.String())
-    timeout = ma.fields.Int(load_default=60)
+    timeout = ma.fields.Int(load_default=600)
     parsers = ma.fields.List(ma.fields.Nested(ParserSchema()))
     cleanup = ma.fields.List(ma.fields.String())
     variations = ma.fields.List(ma.fields.Nested(VariationSchema()))
@@ -45,7 +45,7 @@ class Executor(BaseObject):
         return self.decode_bytes(self.replace_app_props(self.encode_string(self.command)))
 
     def __init__(self, name, platform, command=None, code=None, language=None, build_target=None,
-                 payloads=None, uploads=None, timeout=60, parsers=None, cleanup=None, variations=None,
+                 payloads=None, uploads=None, timeout=600, parsers=None, cleanup=None, variations=None,
                  additional_info=None, **kwargs):
         super().__init__()
         self.name = name

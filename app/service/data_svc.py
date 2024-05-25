@@ -222,7 +222,7 @@ class DataService(DataServiceInterface, BaseService):
                 build_target = executor.get('build_target')
                 payloads = executor.get('payloads')
                 uploads = executor.get('uploads')
-                timeout = executor.get('timeout', 60)
+                timeout = executor.get('timeout', 600)
                 variations = executor.get('variations', [])
 
                 parsers = await self._load_executor_parsers(executor.get('parsers', []))

@@ -114,7 +114,7 @@ class TestRestSvc:
         assert found_operation == expected_operation
 
         # PART B: Delete the operation (that was created in Part A) from the data service
-        delete_criteria = {'id': operation_id, 'finish': None, 'base_timeout': 180, 'link_timeout': 30,
+        delete_criteria = {'id': operation_id, 'finish': None, 'base_timeout': 1800, 'link_timeout': 300,
                            'name': 'My Test Operation', 'jitter': '2/8', 'state': 'finished', 'autonomous': True,
                            'last_ran': None, 'obfuscator': 'plain-text', 'auto_close': False, 'visibility': 50,
                            'chain': [], 'potential_links': []}

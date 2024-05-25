@@ -208,7 +208,7 @@ class OperationApiManager(BaseApiManager):
 
     def build_executor(self, data: dict, agent: Agent):
         if not data.get('timeout'):
-            data['timeout'] = 60
+            data['timeout'] = 600
         data['platform'] = agent.platform
         executor = ExecutorSchema().load(data)
         return executor
